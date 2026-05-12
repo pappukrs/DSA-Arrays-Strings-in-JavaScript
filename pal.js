@@ -1,7 +1,10 @@
-function longestPalindrome(s) {
-    let res = '';
-    for (let i = 0; i = 0 && rres.length) res = s.slice(l, r + 1);
-    for (let l = i, r = i + 1; l >= 0 && rres.length) res = s.slice(l, r + 1);
-}
-return res;
+function subarraySum(nums, k) {
+    const map = { 0: 1 };
+    let count = 0, sum = 0;
+    for (let n of nums) {
+        sum += n;
+        count += (map[sum - k] || 0);
+        map[sum] = (map[sum] || 0) + 1;
+    }
+    return count;
 }
